@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar y Arrastrar Figuras</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, skyblue, yellow);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #figuras {
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            border: 2px solid black;
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 20px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        .figura {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .cuadrado { background-color: red; }
+        .circulo { background-color: green; border-radius: 50%; }
+        .triangulo { 
+            width: 0; 
+            height: 0; 
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid blue; 
+        }
+        .rectangulo { background-color: purple; width: 80px; height: 50px; }
+        .ovalo { background-color: orange; border-radius: 50% / 25%; width: 80px; height: 50px; }
+        #panel {
+            width: 80%;
+            height: 300px;
+            border: 2px dashed black;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            overflow-y: auto;
+        }
+        #instrucciones {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #objetivo, #indicaciones {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="objetivo">
+        <strong>OBJETIVO:</strong><br>
+        1- Estimulación del hemisferio derecho de los procesos de lectura, mediante el entrenamiento en la percepción de imágenes.<br>
+        2- Aumentar la habilidad para percibir y diferenciar imágenes.
+    </div>
+    <div id="indicaciones">
+        <strong>INSTRUCCIONES:</strong><br>
+        1- Observa las figuras de ejemplo que se encuentran en la parte superior de cada ejercicio y encierra todas las figuras o números igual al ejemplo.
+    </div>
+
+    <div id="instrucciones">Arrastra solamente el triángulo.</div>
+    <div id="figuras">
+        <div class="figura cuadrado"></div>
+        <div class="figura circulo"></div>
+        <div class="figura triangulo"></div>
+        <div class="figura rectangulo"></div>
+        <div class="figura ovalo"></div>
+        <div class="figura cuadrado"></div>
+        <div class="figura circulo"></div>
+        <div class="figura triangulo"></div>
+        <div class="figura rectangulo"></div>
+        <div class="figura ovalo"></div>
+        <div class="figura cuadrado"></div>
+        <div class="figura circulo"></div>
+        <div class="figura triangulo"></div>
+        <div class="figura rectangulo"></div>
+        <div class="figura ovalo"></div>
+        <div class="figura cuadrado"></div>
+        <div class="figura circulo"></div>
+        <div class="figura triangulo"></div>
+        <div class="figura rectangulo"></div>
+        <div class="figura ovalo"></div>
+        <div class="figura cuadrado"></div>
+        <div class="figura circulo"></div>
+        <div class="figura triangulo"></div>
+        <div class="figura rectangulo"></div>
+        <div class="figura ovalo"></div>
+    </div>
+    <div id="panel"></div>
+    <!-- Botón para ir a Actividades.html -->
+    <button id="boton">Regresar</button>
+
+    <script>
+        const instrucciones = document.getElementById('instrucciones');
+        const figuras = document.getElementById('figuras');
+        let figuraActual = 'triangulo';
+        let contador = 0;
+
+        const instruccionesMap = {
+            'triangulo': 'Arrastra solamente el triángulo.',
+            'circulo': 'Arrastra solamente el círculo.',
+            'cuadrado': 'Arrastra solamente el cuadrado.',
+            'rectangulo': 'Arrastra solamente el rectángulo.',
+            'ovalo': 'Arrastra solamente el óvalo.'
+        };
+
+        function actualizarInstrucciones() {
+            switch (figuraActual) {
+                case 'triangulo':
+                    figuraActual = 'circulo';
+                    break;
+                case 'circulo':
+                    figuraActual = 'cuadrado';
+                    break;
+                case 'cuadrado':
+                    figuraActual = 'rectangulo';
+                    break;
+                case 'rectangulo':
+                    figuraActual = 'ovalo';
+                    break;
+                case 'ovalo':
+                    figuraActual = 'triangulo';
+                    break;
+            }
+            instrucciones.textContent = instruccionesMap[figuraActual];
+            contador = 0;
+        }
+
+        function agregarFiguras() {
+            const nuevasFiguras = [
+                'cuadrado', 'circulo', 'triangulo', 'rectangulo', 'ovalo',
+                'cuadrado', 'circulo', 'triangulo', 'rectangulo', 'ovalo'
+            ];
+
+            nuevasFiguras.forEach(tipo => {
+                const nuevaFigura = document.createElement('div');
+                nuevaFigura.className = `figura ${tipo}`;
+                nuevaFigura.draggable = true;
+
+                nuevaFigura.addEventListener('dragstart', event => {
+                    event.dataTransfer.setData('text', event.target.className);
+                });
+
+                figuras.appendChild(nuevaFigura);
+            });
+        }
+
+        document.querySelectorAll('.figura').forEach(figura => {
+            figura.draggable = true;
+
+            figura.addEventListener('dragstart', event => {
+                event.dataTransfer.setData('text', event.target.className);
+            });
+        });
+
+        const panel = document.getElementById('panel');
+        
+        panel.addEventListener('dragover', event => {
+            event.preventDefault();
+        });
+
+        panel.addEventListener('drop', event => {
+            event.preventDefault();
+            const className = event.dataTransfer.getData('text');
+
+            if (className.includes(figuraActual)) {
+                const newFigura = document.createElement('div');
+                newFigura.className = className;
+                newFigura.classList.add('figura');
+                newFigura.style.margin = '10px';
+                panel.appendChild(newFigura);
+
+                contador++;
+                if (contador >= 10) {
+                    actualizarInstrucciones();
+                    agregarFiguras();
+                }
+            } else {
+                alert('Por favor, arrastra la figura correcta.');
+            }
+        });
+
+        // Redirigir al hacer clic en el botón "Ir a Actividades"
+        document.getElementById('boton').onclick = function() {
+            location.href = 'Actividades.html';
+
+         }
+    </script>
+
+</body>
+</html>

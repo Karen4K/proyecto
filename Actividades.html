@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="Actividades.css">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="5I_Inicio.html">Inicio</a></li>
+            <li><a href="3P_inicio.php">Salir</a></li>
+            <li><a href="Contactanos.html">Contactanos</a></li>
+        </ul>
+    </nav>
+    <div class="ProgresoUsuario">
+        <span><a href="modificarProUsuario.php">Usuario</a></span>
+    </div>
+    <div class="BarraMenu" padding="1em">
+        <ul>
+            <li><a href="recursos.php"><span>Mis libros</span></a></li>
+            <li><a href="Actividades.html"><span>Actividades</span></a></li>
+        </ul>
+    </div>
+    <div class="contenedor-imagenes">
+        <div class="image-links">
+            <a id="memorama-link" href="2E_Memorama.html"><img src="imagenes/Juego_memorama.jpg" alt="Memorama" width="100%"><div>Memorama</div></a>
+        </div>
+        <div class="image-links">
+            <a id="relato-link" href="4K_relato.php"><img src="imagenes/Juego_aventura.jpg" alt="Juego de Aventura" width="100%"><div>Juego de Aventura</div></a>
+        </div>
+        <div class="image-links">
+            <a id="crucigrama-link" href="Crucigrama.html"><img src="imagenes/Juego_crucigrama.jpg" alt="Crucigrama" width="100%"><div>Crucigrama</div></a>
+        </div>
+        <div class="image-links">
+            <a id="sopa-link" href="3p_SopaLetras.html"><img src="imagenes/Juego_Sopa.jpg" alt="Sopa de letras" width="100%"><div>Sopa de letras</div></a>
+        </div>
+        <div class="image-links">
+            <a id="ver-link" href="4K_fijaciones.html"><img src="imagenes/fijaciones.jpg" alt="Completa la frase" width="100%"><div>Completa la frase</div></a>
+        </div>
+        <div class="image-links">
+            <a id="fig-link" href="fig (1).html"><img src="imagenes/figuras.jpg" alt="Completa la frase" width="100%"><div>Completa la frase</div></a>
+        </div>
+        <div class="image-links">
+            <a id="memoria-link" href="5I_Juego.html"><img src="imagenes/memoria.jpg" alt="Completa la frase" width="100%"><div>Completa la frase</div></a>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el nombre de usuario de la URL
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        var nombreusuario = getParameterByName('nombreusuario');
+        if (nombreusuario) {
+            document.getElementById('nombreUsuarioSpan').textContent = nombreusuario;
+        }
+
+        // Función para añadir el nombre de usuario a los enlaces
+        function addUsernameToLinks() {
+            var links = document.querySelectorAll('.image-links a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+                    var url = new URL(link.href);
+                    url.searchParams.set('nombreusuario', nombreusuario);
+                    window.location.href = url.toString(); // Redirigir manualmente
+                });
+            });
+        }
+
+        // Llamar a la función para actualizar los enlaces
+        addUsernameToLinks();
+    </script>
+</body>
+
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.cabecera{
+    width: 100% !important;
+    height: 330px !important;
+}
+
+
+
+#div25I{
+    background-color: white;
+    height: 95%;
+    width: 95%;
+    margin:auto;
+    
+}
+/*.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }*/
+
+#h2_1_5I{
+    text-align: left;
+    font-style: arial;
+    font-size: 400%;
+    padding-left: 7%;
+    padding-top: 10%;
+    
+}
+#h2_2_5I{
+    text-align: right;
+    font-style: arial;
+    font-size: 350%;
+    padding-right: 10%;
+    padding-top: 30%;
+}
+
+
+#P1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 180%;
+    padding-left: 220px;
+    padding-right: 800px;
+    padding-top: 70px;
+    text-align: justify 
+}
+#P2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150%;
+    padding-left: 700px;
+    padding-right: 260px;
+    padding-top: 70px;
+    text-align: justify
+}
+
+#img15I{
+    width: 40%;
+    height: 40%;
+    float: right;
+    padding-top: 60px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+nav{/*barra azul*/
+    background: rgba(3, 66, 149, 0.7);
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{/*Cuando el mouse pasa por encima se cambia el color*/
+    background: #000090;
+    transition: .5s;
+}
+.checkbtn{/*las tres rayitas*/
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px; /*centra: arriba a abajo*/
+    margin-right: 40px;
+    cursor: pointer; /*manita*/
+    display: none;/*que no se vea en desktop solo dispositivos pequeños*/
+}
+#check{/*el cuadrito*/
+    display: none;
+}
+
+@media (max-width: 952px){/*en tablet*/
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 858px){/*en telefono*/
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: red;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+</style>
+</html>

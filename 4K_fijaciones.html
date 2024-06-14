@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego: La Búsqueda del Tesoro</title>
+    <style>
+        /* Estilo del cuerpo con un fondo degradado */
+        body {
+            background: linear-gradient(to right, rgb(182, 233, 249), rgb(189, 248, 188));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Estilo para las imágenes con id 'im1' */
+        #im1 {
+            width: 15%; 
+        }
+        /* Moficar el tamaño de 'fijaciones1' */
+        #fijaciones1 {
+            width: 50%;
+        }
+        /* Ocultar la imagen de 'fijaciones2' por defecto */
+        #fijaciones2 {
+            display: none;
+        }
+        /* Contenedor para objetivo e instrucciones */
+        .contenedor {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        /* Estilo para las secciones de objetivo e instrucciones */
+        .seccion {
+            width: 45%;
+        }
+        /* Tabla de tiempo */
+        table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actividad Fijaciones</h1>
+    <br>
+    <!-- Tabla que muestra el tiempo disponible -->
+    <table border="4" cellpadding="4" cellspacing="4" width="8%">
+        <tr>
+            <th align="center">Tiempo</th>
+        </tr>
+        <tr>
+            <td align="center">1 min.</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- Contenedor para objetivo e instrucciones -->
+    <div class="contenedor">
+        <!-- Sección del objetivo del juego -->
+        <div id="objetivoLibro4k" class="seccion">
+            <h2>Objetivo</h2>
+            <img id="im1" src="imagenes/objetivo.png">
+            <ul type="square">
+                <li>Deslizar los ojos evitando los pequeños saltos que se realizan al leer e incrementar su velocidad lectora.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de instrucciones del juego -->
+        <div id="instruccionesLibro4k" class="seccion">
+            <h2>Instrucciones</h2>
+            <img id="im1" src="imagenes/instrucciones.png">
+            <ol>
+                <li>Siga la dirección de las flechas haciendo pequeñas pausas en las figuras.</li>
+                <li>Repita el deslizamiento durante el tiempo estipulado.</li>
+            </ol>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Imagen inicial de 'fijaciones1' -->
+    <img id="fijaciones1" src="imagenes/fijaciones1.png" alt="fijaciones1">
+    <!-- Imagen oculta de 'fijaciones2' -->
+    <img id="fijaciones2" src="imagenes/fijaciones2.png" alt="fijaciones2">
+
+    <br>
+    <!-- Botón que al hacer clic llama a la función 'siguienteNivel' -->
+    <button onclick="siguienteNivel()">Siguiente nivel</button>
+
+    <!-- Botón para ir a Actividades.html -->
+    <button id="boton">Regresar</button>
+    
+   
+    <script>
+        // Función que se ejecuta al hacer clic en el botón "Siguiente nivel"
+        function siguienteNivel() {
+            // Ocultar la imagen 'fijaciones1'
+            document.getElementById('fijaciones1').style.display = 'none';
+            // Mostrar la imagen 'fijaciones2'
+            document.getElementById('fijaciones2').style.display = 'block';
+        }
+         // Redirigir al hacer clic en el botón "Ir a Actividades"
+         document.getElementById('boton').onclick = function() {
+            location.href = 'Actividades.html';
+
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    background: linear-gradient(to right, rgb(252, 255, 104), rgb(106, 255, 103), rgb(69,221,255));
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1, h2 {
+    font-family: "Roboto", sans-serif;
+}
+
+.back-button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #050700;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.wordSearch {
+    margin-top: 10px;
+}
+
+.questions {
+    margin-top: 20px;
+}
+
+.cell {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #d4d10d;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #df03d4;
+}
+
+.correct {
+    background-color: #480ee9;
+}
+
+.incorrect {
+    background-color: #f78181;
+}
+
+.reading {
+    margin-bottom: 20px;
+}
+
+.results {
+    margin-top: 20px;
+    text-align: left;
+}

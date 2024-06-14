@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(11, 101, 157);
+    
+    margin-top: 120px;
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    */
+}
+.contenedor-imagenes{
+    /*
+    display: flex;
+    flex-direction: ;
+    justify-content: center;
+    align-items: center;
+    */
+
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.ProgresoUsuario{
+    width: 150px;
+    height: 150px;
+    background: orange;
+    border-radius: 100px 0 100px 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.ProgresoUsuario span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    font-size: 20px;
+}
+.BarraMenu{
+    width: 700px;
+    height: 100px;
+    background: rgb(7, 156, 193);
+    border-radius: 20px 20px 20px 20px;
+    position: fixed;
+    top: 1px;
+    box-shadow: 5px 8px 12px black;
+    margin-left: 300px;
+    
+    display: flex;
+    justify-content: space-around;
+    
+    /*align-items: center;*/
+}
+
+.BarraMenu span{
+    font-size: 3rem;
+    color: white;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);*/
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+.BarraMenu ul {
+    list-style: none; /* Elimina los puntos de bala predeterminados */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.BarraMenu li {
+    cursor: pointer; /* Indica elementos clicables */
+}
+  .BarraMenu li span {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    margin: 0 15px 0 0;
+}
+  
+.BarraMenu li.active span {
+    /* Estilos para el elemento de menú activo */
+    color: #d4914d; /* Cambia el color del texto a naranja */
+}
+  
+.BarraMenu li:hover span {
+    /* Estilos para el elemento del menú al pasar el cursor */
+    color: #d4914d; 
+}

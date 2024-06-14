@@ -1,0 +1,20 @@
+.image-links {
+  display: flex; /* Organizar enlaces en fila */
+  flex-wrap: wrap; /* Permitir que los enlaces se rompan en varias filas si es necesario */
+  justify-content: center; /* Centrar enlaces horizontalmente */
+  align-items: center; /* Centrar enlaces verticalmente */
+  margin: 0 auto; /* Centrar todo el contenedor horizontalmente */
+}
+
+.image-links a {
+  display: block; /* Asegurar que los enlaces ocupen el espacio disponible */
+  margin: 10px; /* Espacio entre enlaces */
+  text-decoration: none; /* Eliminar subrayado predeterminado */
+}
+
+.image-links img {
+  width: 200px; /* Ancho de la imagen */
+  height: 150px; /* Altura de la imagen */
+  object-fit: cover; /* Ajustar las imágenes para que llenen el espacio sin distorsión */
+  border: 1px solid #ccc; /* Borde gris claro alrededor de las imágenes */
+}

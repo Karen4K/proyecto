@@ -1,0 +1,9 @@
+body{
+    background-color: #a599ff;
+}
+h1{
+    text-align: center;
+    margin: 2rem;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgb rgba(0, 0, 0, 46);
+}

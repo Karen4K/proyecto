@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de contacto</title>
+  <link rel="stylesheet" type="text/css" href="4K_styles.css">
+</head>
+<body>  
+  <div class="sobre">
+    <div class="formulario_contacto">
+      <div class="formulario">
+        <img src="imagenes/pajaro.jpg" alt="Imagen de cabecera" class="imagen-cabecera">
+        <i><h1>Formulario de contacto</h1></i>
+        <h3>Envíanos un mensaje y pronto nos comunicaremos contigo</h3>
+        <form action="mailto:comprendetulectura@gmail.com"  method="post">       
+          <p>
+            <label for="nombre" class="etiqueta_nombre">Nombre
+              <span class="obligatorio">*</span>
+            </label>
+            <input type="text" name="nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+          </p>
+          <p>
+            <label for="email" class="etiqueta_email">Email
+              <span class="obligatorio">*</span>
+            </label>
+            <input type="email" name="email" id="email" required="obligatorio" placeholder="Escribe tu Email">
+          </p>
+          <p>
+            <label for="telefono" class="etiqueta_telefono">Teléfono
+            </label>
+            <input type="tel" name="telefono" id="telefono" placeholder="Escribe tu teléfono">
+          </p>   
+          <p>
+            <label for="mensaje" class="etiqueta_mensaje">Mensaje
+              <span class="obligatorio">*</span>
+            </label>                     
+            <textarea name="mensaje" class="mensaje_texto" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
+          </p>      
+          <p>
+            <label for="calificacion" class="etiqueta_calificacion">¿Cómo califica este sitio web? (0 al 10)
+            </label>
+            <input type="number" name="calificacion" id="calificacion" min="0" max="10" step="1" placeholder="Ingrese su calificación">
+          </p>              
+          <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+          <p class="aviso">
+            <span class="obligatorio"> * </span>los campos son obligatorios.
+          </p>          
+        </form>
+      </div>  
+    </div>
+  </div>
+</body>
+</html>
